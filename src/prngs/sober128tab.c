@@ -5,7 +5,14 @@
 /* $ID$ */
 /* @(#)TuringMultab.h   1.3 (QUALCOMM) 02/09/03 */
 /* Multiplication table for Turing using 0xD02B4367 */
-static const ulong32 Multab[256] = {
+#include "tomcrypt.h"
+
+#ifdef LTC_SOBER128
+
+#define __DECL_SOBER128TAB_H__
+#include "sober128tab.h"
+
+const ulong32 Multab[256] = {
     0x00000000, 0xD02B4367, 0xED5686CE, 0x3D7DC5A9,
     0x97AC41D1, 0x478702B6, 0x7AFAC71F, 0xAAD18478,
     0x631582EF, 0xB33EC188, 0x8E430421, 0x5E684746,
@@ -90,7 +97,7 @@ static const ulong32 Multab[256] = {
  * high byte is actually the Skipjack F-table entry XORED with its
  * table index.
  */
-static const ulong32 Sbox[256] = {
+const ulong32 Sbox[256] = {
     0xa3aa1887, 0xd65e435c, 0x0b65c042, 0x800e6ef4,
     0xfc57ee20, 0x4d84fed3, 0xf066c502, 0xf354e8ae,
     0xbb2ee9d9, 0x281f38d4, 0x1f829b5d, 0x735cdf3c,
@@ -156,6 +163,8 @@ static const ulong32 Sbox[256] = {
     0x45f0b24f, 0x51fda998, 0xc0d52d71, 0xfa0896a8,
     0xf9e6053f, 0xa4b0d300, 0xd499cbcc, 0xb95e3d40,
 };
+
+#endif /* LTC_SOBER128 */
 
 /* $Source$ */
 /* $Revision$ */

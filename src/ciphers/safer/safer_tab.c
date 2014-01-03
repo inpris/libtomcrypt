@@ -18,6 +18,9 @@
 
 #if defined(LTC_SAFERP) || defined(LTC_SAFER)
 
+#define __DECL_SAFER_TAB_H__
+#include "safer_tab.h"
+
 /* This is the box defined by ebox[x] = 45^x mod 257.
  * Its assumed that the value "256" corresponds to zero. */
 const unsigned char safer_ebox[256] = {
